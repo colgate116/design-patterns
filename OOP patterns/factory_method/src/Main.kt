@@ -5,7 +5,6 @@ fun main() {
     val developer4: Developer = developerFactory(Developers.SWIFT_DEV, "Vladimir").createDeveloper()
     val developer5: Developer = developerFactory(Developers.PHP_DEV, "Vladimir").createDeveloper()
     val developer6: Developer = developerFactory(Developers.PHP_DEV, "Alex").createDeveloper()
-
 }
 
 fun developerFactory(developer: Developers, name: String): DeveloperFactory {
