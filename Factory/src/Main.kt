@@ -6,6 +6,7 @@ fun main() {
     val developer5: Developer = developerFactory(Developers.PHP_DEV, "Vladimir").createDeveloper()
     val developer6: Developer = developerFactory(Developers.PHP_DEV, "Alex").createDeveloper()
     developer6.writeCode()
+
 }
 
 fun developerFactory(developer: Developers, name: String): DeveloperFactory {
