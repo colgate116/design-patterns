@@ -1,0 +1,50 @@
+@startuml
+interface Developer {
++ String name
++ void writeCode()
+}
+class KotlinDeveloper {
++ <<Create>> KotlinDeveloper(String)
++ void writeCode()
+}
+class SwiftDeveloper {
++ <<Create>> SwiftDeveloper(String)
++ void writeCode()
+}
+class PhpDeveloper {
++ <<Create>> PhpDeveloper(String)
++ void writeCode()
+}
+interface DeveloperFactory {
++ Developer createDeveloper()
++ void addToDB()
+}
+class KotlinDeveloperFactory {
+-  kotlinDeveloper
++ <<Create>> KotlinDeveloperFactory(String)
++ KotlinDeveloper createDeveloper()
++ void addToDB()
+}
+class SwiftDeveloperFactory {
+-  swiftDeveloper
++ <<Create>> SwiftDeveloperFactory(String)
++ SwiftDeveloper createDeveloper()
++ void addToDB()
+}
+class PhpDeveloperFactory {
+-  phpDeveloper
++ <<Create>> PhpDeveloperFactory(String)
++ PhpDeveloper createDeveloper()
++ void addToDB()
+}
+enum Developers {
+}
+
+
+Developer <|.. KotlinDeveloper
+Developer <|.. SwiftDeveloper
+Developer <|.. PhpDeveloper
+DeveloperFactory <|.. KotlinDeveloperFactory
+DeveloperFactory <|.. SwiftDeveloperFactory
+DeveloperFactory <|.. PhpDeveloperFactory
+@enduml
