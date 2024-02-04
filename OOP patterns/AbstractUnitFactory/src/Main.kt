@@ -3,6 +3,7 @@ fun main() {
         val color = readln().toInt()
         val unit = readln().toInt()
         createFactory(color, unit).attack()
+        println("Poshel nahui")
     }
 }
 
