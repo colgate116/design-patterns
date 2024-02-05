@@ -1,6 +1,5 @@
 class ChessGameController {
     private val isPlaying = true
-
     fun game(){
         FiguresCreator().createFigure(Side.ATTACK)
         FiguresCreator().createFigure(Side.PROTECTION)
@@ -16,8 +15,6 @@ class ChessGameController {
         }
     }
 }
-
-
 
 enum class Side{
     ATTACK, PROTECTION

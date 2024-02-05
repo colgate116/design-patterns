@@ -7,7 +7,6 @@ class SideController {
     fun getCurrentSide(): Side {
         return currentSide
     }
-
     //todo переворот доски
     //todo подумать куда положить графическую и пользовательскую логику переключения стороны
     fun sideControl(){
@@ -19,9 +18,7 @@ class SideController {
                 currentSide = Side.ATTACK
             }
         }
-
     }
-
     fun sidePermissionToInteractionWithFigure(figure: Figure){
         if (figure.getFigureSide()!=currentSide)
             throw Exception("Сейчас ход другой стороны")

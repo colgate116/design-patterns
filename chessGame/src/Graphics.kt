@@ -1,10 +1,9 @@
 import figures.Figure
 
 class ChessBoardCanvas {
-    private val rows = ChessBoardLogic().getRows()
-    private val columns = ChessBoardLogic().getColumns()
-    private val chessMatrix = ChessBoardLogic().getChessPositionMatrix()
-
+    private val rows = ChessBoardLogic.getRows()
+    private val columns = ChessBoardLogic.getColumns()
+    private val chessMatrix = ChessBoardLogic.getChessPositionMatrix()
     fun drawBoard(){
         var cell:String
         for (rowIndex in rows.indices){
@@ -22,7 +21,7 @@ class ChessBoardCanvas {
             }
             print('|')
         }
-        println("\n ${ChessBoardLogic().getColumns().contentToString()}")
+        println("\n ${ChessBoardLogic.getColumns().contentToString()}")
     }
 }
 
