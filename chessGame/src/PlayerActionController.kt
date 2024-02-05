@@ -21,11 +21,11 @@ class PlayerActionController {
 
     fun runAction(){
         val action = getAction()
-        val cellCoordinates = ChessBoardLogic().findCellByPosition(action.first)
-        val figure = ChessBoardLogic().getChessPositionMatrix()[cellCoordinates.first][cellCoordinates.second].invoke().second
+        val cellCoordinates = ChessBoardLogic.findCellByPosition(action.first)
+        val figure = ChessBoardLogic.getChessPositionMatrix()[cellCoordinates.first][cellCoordinates.second].invoke().second
         if (figure!=null)
             SideController().sidePermissionToInteractionWithFigure(figure)
-        ChessBoardLogic().interactionWithFigure(action.first, action.second, action.third)
+        ChessBoardLogic.interactionWithFigure(action.first, action.second, action.third)
     }
 }
 
