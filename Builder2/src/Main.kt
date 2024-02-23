@@ -1,3 +1,4 @@
+//шаблон Builder с гибкой настройкой класса
 fun main() {
     val unit: Unit = BuildUnit()
         .health(40)
