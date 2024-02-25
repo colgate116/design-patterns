@@ -8,7 +8,6 @@ abstract class Pawn(abstractChessBoard: AbstractChessBoard): Figure(abstractChes
     abstract fun convertToMainFigure(figure: Figure)
     override var position: Pair<Char, Int>? = getFigurePosition()
 
-    // правильно ли через DIP
     override fun beAbleToMove(position: Pair<Char, Int>): Boolean {
         return abstractChessBoard.isCellEmpty(position)
     }
