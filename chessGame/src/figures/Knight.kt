@@ -4,7 +4,7 @@ import AbstractChessBoard
 import Side
 
 abstract class Knight(abstractChessBoard: AbstractChessBoard) : Figure(abstractChessBoard) {
-    override var position: Pair<Char, Int> = getFigurePosition()
+    override var position: Pair<Char, Int>? = getFigurePosition()
 
     override fun move(newPosition: Pair<Char, Int>) {
         TODO("Not yet implemented")

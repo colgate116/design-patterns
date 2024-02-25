@@ -24,8 +24,12 @@ object ChessBoardLogic: AbstractChessBoard {
         return chessBoardMatrix[coordinates.first][coordinates.second].invoke().second==null
     }
     override fun setCell(figure: Figure) {
-        val coordinate = findCellByPosition(figure.getFigurePosition())
-        chessBoardMatrix[coordinate.first][coordinate.second] = { figure.getFigurePosition() to figure }
+        if (figure.getFigurePosition()!=null) {
+            val coordinate = findCellByPosition(figure.getFigurePosition()!!)
+            chessBoardMatrix[coordinate.first][coordinate.second] = { (figure.getFigurePosition()!! to figure) }
+        }
+        else
+            throw Exception("Figures was created without starting positions, create figures using class FigureCreator")
     }
     override fun getCellCondition(position: Pair<Char, Int>): Figure? {
         val coordinate = findCellByPosition(position)

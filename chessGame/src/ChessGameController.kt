@@ -2,7 +2,7 @@ class ChessGameController {
     private val isPlaying = true
     fun game(){
         FiguresCreator().createFigure(Side.ATTACK)
-        FiguresCreator().createFigure(Side.PROTECTION)
+        //FiguresCreator().createFigure(Side.PROTECTION)
         try {
             while (isPlaying) {
                 //ChessLog().printBoardLog()
