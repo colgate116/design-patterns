@@ -4,17 +4,21 @@ fun main() {
     println("$unit $unit1")
 
     val knight = Knight()
-    val knight1 =knight.copy()
+    val knight1:Knight =knight.copy()
+    println(knight1)
 }
 
 data class Unit(val health: Int, val power: Int, val stamina: Int)
 
 class Knight: Copyable{
     val health: Int = 30
-    val power: Int = 3
+    var power: Int = 3
     val stamina: Int = 3
     override fun copy(): Knight {
-        val knight = this
-        return knight
+        return this
+    }
+
+    override fun toString(): String {
+        return "Knight(health=$health, power=$power, stamina=$stamina)"
     }
 }
