@@ -18,7 +18,7 @@ class AttackPawn(abstractChessBoard: AbstractChessBoard) : Pawn(abstractChessBoa
     override val side: Side = Side.ATTACK
 
     override fun convertToMainFigure(figure: Figure) {
-        this.setFigurePosition(null)
+        //this.setFigurePosition(null)
     }
     override fun beAbleToAttack(position: Pair<Char, Int>): Boolean {
         return !abstractChessBoard.isCellEmpty(position) &&

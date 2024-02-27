@@ -2,7 +2,7 @@ class ChessLog() {
     fun printBoardLog(){
         val board = ChessBoardLogic.getChessPositionMatrix()
         for (row in board){
-            println(row.forEach { println(it.invoke()) })
+            println(row.forEach { println("${it.invoke()} ${it.invoke().second?.getFigurePosition()}") })
         }
     }
 }

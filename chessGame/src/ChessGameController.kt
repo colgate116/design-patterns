@@ -5,7 +5,7 @@ class ChessGameController {
         //FiguresCreator().createFigure(Side.PROTECTION)
         try {
             while (isPlaying) {
-                //ChessLog().printBoardLog()
+                ChessLog().printBoardLog()
                 ChessBoardCanvas().drawBoard()
                 PlayerActionController().runAction()
                 //SideController().sideControl()
