@@ -67,6 +67,9 @@ class AttackPawn(abstractChessBoard: AbstractChessBoard) : Pawn(abstractChessBoa
             }
             else -> throw Exception("Пешка не может так атаковать ")
         }
+        if (firstMove){
+            firstMove = false
+        }
         convertToMainFigure(AttackKnight(abstractChessBoard))
     }
 }
