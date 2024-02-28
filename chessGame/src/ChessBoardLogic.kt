@@ -35,17 +35,18 @@ object ChessBoardLogic: AbstractChessBoard {
         val coordinate = findCellByPosition(position)
         return chessBoardMatrix[coordinate.first][coordinate.second].invoke().second
     }
+
+    override fun setCellCondition(position: Pair<Char, Int>, condition: Figure?) {
+        val coordinates = findCellByPosition(position)
+        chessBoardMatrix[coordinates.first][coordinates.second] = {position to condition}
+    }
 }
 
 class InteractionWithFiguresController(private val chessBoardMatrix: Array<Array<() -> Pair<Pair<Char, Int>, Figure?>>>) {
     fun interactionWithFigure(oldPosition: Pair<Char, Int>, newPosition: Pair<Char, Int>, action: Action) {
-        val oldCoordinate = ChessBoardLogic.findCellByPosition(oldPosition)
-        val newCoordinate = ChessBoardLogic.findCellByPosition(newPosition)
         val figure = ChessBoardLogic.getCellCondition(oldPosition)
         if (figure != null) {
             actionRunning(figure, action, newPosition)
-            chessBoardMatrix[oldCoordinate.first][oldCoordinate.second] = { oldPosition to null }
-            chessBoardMatrix[newCoordinate.first][newCoordinate.second] = { newPosition to figure }
         } else
             throw Exception("На клетке нет фигур для перемещения")
     }
