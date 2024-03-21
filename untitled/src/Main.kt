@@ -10,6 +10,7 @@ fun main() {
         array.put(10, 3)
         println(array)
     }
+
     for (i in 0..15)
         array.removeLast()
 
