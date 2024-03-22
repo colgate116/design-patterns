@@ -1,5 +1,7 @@
 fun main() {
     val array = Vector(2)
+    array.plus(4)
+    array.ensureCapacity(34)
     for (i in 0..10){
         array.plus(i)
     }
@@ -13,13 +15,12 @@ fun main() {
 
     for (i in 0..15)
         array.removeLast()
-    array.plus(4)
+    array.trimToSize()
     println(array)
-    println(array.size)
 
 }
 
-class Vector(private var capacity: Int = 2){
+class Vector(private var capacity: Int = 10){
     private var vector = IntArray(capacity)
     var size = 0
 
@@ -81,12 +82,19 @@ class Vector(private var capacity: Int = 2){
         }
 
     }
-
+    fun ensureCapacity(cap: Int){
+        capacity = cap
+        vector = vector.copyOf(cap)
+    }
+    fun trimToSize(){
+        capacity = size
+        vector = vector.copyOf(size)
+    }
     override fun toString(): String {
         //вывод относительно логичского размера массива
-        return vector.slice(0..<size).joinToString()
+       // return vector.slice(0..<size).joinToString()
 
     //вывод относительно физического размера массива
-        //return vector.contentToString()
+        return vector.contentToString()
     }
 }
