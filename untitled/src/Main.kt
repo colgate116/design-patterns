@@ -10,23 +10,37 @@ fun main() {
     println(array)
     for (i in 10..15) {
         array.put(10, 3)
-        println(array)
     }
-
-    for (i in 0..15)
+    println(array)
+    array.set(2,4)
+    println(array)
+    for (i in 0..16)
         array.removeLast()
     array.trimToSize()
     println(array)
-
+    array.plus(4)
+    println(array)
+    for (i in 0..10)
+        array.plus(i)
+    println(array)
+    for (i in 0..5 )
+        array.put(0,1)
+    println(array)
 }
 
 class Vector(private var capacity: Int = 10){
     private var vector = IntArray(capacity)
     var size = 0
 
+    private fun emptyArrayCheck(){
+        if (size==0){
+            vector = IntArray(1)
+            capacity++
+        }
+    }
     private fun capacityIncrease(){
-        size++
-        if (size>capacity){
+        emptyArrayCheck()
+        if (size>=capacity){
             capacity*=2
             vector = vector.copyOf(capacity)
         }
@@ -39,6 +53,7 @@ class Vector(private var capacity: Int = 10){
 
     fun plus(value: Int){
         capacityIncrease()
+        size++
         vector[size-1] = value
     }
 
@@ -56,6 +71,7 @@ class Vector(private var capacity: Int = 10){
     fun put(index: Int, value: Int){
         indexValidation(index)
         capacityIncrease()
+        size++
         var el: Int = vector[index]
         for (i in index..size-2){
             val el1 = vector[i+1]
@@ -66,9 +82,10 @@ class Vector(private var capacity: Int = 10){
     }
 
     fun removeLast(){
-        size--
         if (size>0)
-            vector[size-1] = vector[size]
+            size--
+        else
+            throw IndexOutOfBoundsException()
     }
 
     fun remove(index: Int){
@@ -92,7 +109,7 @@ class Vector(private var capacity: Int = 10){
     }
     override fun toString(): String {
         //вывод относительно логичского размера массива
-       // return vector.slice(0..<size).joinToString()
+        //return vector.slice(0..<size).joinToString()
 
     //вывод относительно физического размера массива
         return vector.contentToString()
